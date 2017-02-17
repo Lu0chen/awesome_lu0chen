@@ -36,3 +36,64 @@ do
 end
 -- }}}
 
+-- {{{ 变量定义
+-- icons,colour,wallpaper...use theme.lua
+beautiful.init = (".../theme.lua")
+-- 定义默认终端和编辑器,我用xterm和vim
+terminal = "Xterm"
+editor = os.getenv("EDITOR") or "vim"
+editor_cmd = terminal .. "-e" .. editor
+
+-- 定义功能键
+modkey = "Mod4"
+
+-- 使用awesome的table来布局,就是布局方式，快捷键ctrl+space
+local layouts = 
+{
+    --我一般只是用前面两个，其它的先注释掉
+    awful.layout.suit.floating,
+    awful.layout.suit.tile,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    --awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.max,
+    --awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.magnifier
+}
+-- }}}
+
+-- {{{ 壁纸 
+if beautiful.wallpaper then  
+    for s = 1, screen.count() do 
+      gears.wallpaper.maximized(beautiful.wallpaper, s, true) 
+    end 
+end
+-- }}}
+
+-- {{{ 标签
+tags = {
+    name = { " CHROMIUM ", " VIM ", " XTERM ", " OTHER " },
+    layout = { layout[2], layout[2], layout[2], layout[2] } 
+}
+for s = 1, screen.count() do  
+    tags[s] = awful.tag(tags.name, s, tags.layout)
+end
+-- }}}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
