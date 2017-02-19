@@ -91,9 +91,12 @@ myawesomemenu = {
     {"quit", awesome.quit}
 }
 
-mymainmenu = awful.menu({ items = 
-                            
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    {"open terminal", terminal } 
+                                  }
                         })
+
+mylauncher = awful.widget.laucher()
 -- }}}
 
 

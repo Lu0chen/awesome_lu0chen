@@ -55,7 +55,7 @@
  ```
 
 
-## Module 
+## Modules 
 ### naughty
  - naughty是awesome中的负责通知警告的库
  - 写启动错误报告时调用了其中的notify函数，他用来创建一个通知警告。这个函数的参数巨多，在awesome的启动错误警告中用到了三个参数。
@@ -71,12 +71,15 @@
   3. ignore_aspect：true or false，如果为真，图像的宽高比会被忽略。
   4. offset：设置具有条目x或y的表，我不会使用
 
-## function
+## functions
 ### os.getenv
  - 这个函数用来查询一些系统的环境变量，比如系统的版本，关键路径，程序运行路径什么的。
  - os.getenv(varname):返回当前进程"varname"的环境变量，若变量没有定义返回nil
  - varname对大小写不敏感
 
+## classes
+### awful.wifget.launcher
+ - 
 
 
 
