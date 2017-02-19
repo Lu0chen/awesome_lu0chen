@@ -10,6 +10,7 @@ local beautiful = require("beautiful")
 -- awesome通知库
 local naughty = require("naughty")
 local menubar = require("menubar")
+local hotkeys_popup = require("awful.hotkeys_popup").widget
 
 -- {{{错误处理
 
@@ -65,15 +66,15 @@ local layouts =
 }
 -- }}}
 
--- {{{ 壁纸 
+--[[ 壁纸 
 if beautiful.wallpaper then  
     for s = 1, screen.count() do 
       gears.wallpaper.maximized(beautiful.wallpaper, s, true) 
     end 
 end
--- }}}
+--]]
 
--- {{{ 标签
+--[[ 标签
 tags = {
     name = { " CHROMIUM ", " VIM ", " XTERM ", " OTHER " },
     layout = { layout[2], layout[2], layout[2], layout[2] } 
@@ -81,8 +82,23 @@ tags = {
 for s = 1, screen.count() do  
     tags[s] = awful.tag(tags.name, s, tags.layout)
 end
+--]]
+
+-- {{{帮助函数
+local function client_menu_toggle_fn() 
+    local instance = nil
+
+    return function ()
+        if instance and instance.wibox.visible then 
+            instance:hide()
+            instance = nil
+        else
+            instance = awful.menu.clients({ theme = { width = 350 } })
+        end
+    end
+end
 -- }}}
-    
+
 -- {{{ 菜单
 myawesomemenu = {
     {"manual", terminal.." -e man awesome"},
