@@ -83,7 +83,18 @@ for s = 1, screen.count() do
 end
 -- }}}
     
+-- {{{ 菜单
+myawesomemenu = {
+    {"manual", terminal.." -e man awesome"},
+    {"editor config", editor_cmd .. " " .. awesome.conffile},
+    {"restart", awesome.restart},
+    {"quit", awesome.quit}
+}
 
+mymainmenu = awful.menu({ items = 
+                            
+                        })
+-- }}}
 
 
 
