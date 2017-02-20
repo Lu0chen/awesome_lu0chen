@@ -101,10 +101,16 @@ end
 
 -- {{{ 菜单
 myawesomemenu = {
+    { "hotkeys", function() return false, hotkeys_popup.show_help  end },
     {"manual", terminal.." -e man awesome"},
     {"editor config", editor_cmd .. " " .. awesome.conffile},
     {"restart", awesome.restart},
-    {"quit", awesome.quit}
+
+
+
+
+
+    {"quit", function() awesome.quit() end}
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
